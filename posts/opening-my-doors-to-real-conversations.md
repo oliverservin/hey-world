@@ -10,12 +10,12 @@ He decidido abrir casi todas las formas de contactarme: teléfono, correo electr
 
 ## ¿Cómo puedes contactarme?
 
-Me he vuelto accesible a través de varias opciones:
+Me he vuelto accesible a través de varias opciones reales:
 
-- **Número de teléfono** (sí, esto me da algo de miedo, pero quiero intentarlo)
-- **Correo electrónico**
-- **WhatsApp**
-- **Mensajes directos en Twitter**
+- **Teléfono:** +52 33 4474 7654 (sí, esto me da algo de miedo, pero quiero intentarlo)
+- **Correo electrónico:** [oli@fastmail.com](mailto:oli@fastmail.com)
+- **WhatsApp:** [Haz clic aquí para escribirme](https://wa.me/523344747654)
+- **X (Twitter):** [@oliverservinX](https://x.com/oliverservinX)
 
 Si quieres hablar o charlar, siéntete libre de contactarme en cualquier momento. Si estoy disponible, atenderé tu llamada; si no, te devolveré la llamada cuando pueda.
 
