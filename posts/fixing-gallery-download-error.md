@@ -1,4 +1,4 @@
-# Mi viaje resolviendo un error de red al descargar galerías en Picstome
+# Descargando galerías sin errores en Picstome
 
 Ser desarrollador full stack implica enfrentarse a retos técnicos que a veces parecen no tener sentido. Recientemente, tuve que solucionar un error de red que ocurría cuando los usuarios intentaban descargar galerías de fotos en [Picstome](https://picstome.com).
 
