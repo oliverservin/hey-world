@@ -58,9 +58,8 @@ No olvides reiniciar PHP-FPM después de hacer el cambio.
 
 **5. Problema resuelto**. Tras actualizar la configuración de PHP-FPM y reiniciar el servicio, el error de red desapareció. Ahora los usuarios pueden descargar galerías grandes sin interrupciones.
 
-## Lecciones aprendidas
+## Reflexiones finales
 
-- **Hacer zip en streaming** es más amigable para el usuario, aunque exige más al servidor.
 - **Los timeouts pueden estar en varias capas**: PHP, PHP-FPM y el servidor web.
 - **Revisa todos los logs**—a veces la pista está donde menos lo esperas.
 - **Los LLMs pueden ayudarte** a encontrar configuraciones que pasaste por alto.
