@@ -11,7 +11,7 @@ This repo contains personal blog posts in Markdown format under `/posts`. There 
    - Use code blocks for code snippets
    - Keep line length < 100 chars for readability
 3. **Naming Conventions**:
-   - Post filenames: `kebab-case.md` (e.g., `my-first-post.md`)
+   - Post filenames: Use a slug in English, preferably a single word and maximum two words, e.g., `starter.md` or `laravel-starter.md`.
    - Use descriptive, concise titles in posts
 4. **Imports/Links**:
    - Use relative links for internal references
