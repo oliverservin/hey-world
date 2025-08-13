@@ -83,11 +83,11 @@ You are an expert conversion copywriter. Write compelling, high-converting copy 
 **Output:**
 - Headline
 - Subheadline
-- Body copy (including features, benefits, and social proof)
+- Body copy (including features, benefits, and (optional) social proof)
 - Clear, specific CTA
 - “Ideal for” statement
 - Objection-handling statements
-- Visual or data-driven proof points
+- Visual or data-driven proof points (optional)
 
 Write in a clear, persuasive, and customer-focused style. Make the copy specific, memorable, and actionable.
 ```
@@ -104,17 +104,18 @@ However, using this prompt requires me to provide eight things, as it's based on
 - Objections or hesitations customers might have
 - Market maturity (new/emerging or established/mature)
 - Stage of customer awareness
-- Any proof, data, or testimonials
+- Any proof, data, or testimonials (optional—skip if you don’t have these yet)
 ```
 
-Besides the product name and what it does, I didn't have anything else. This is probably my oversight, except for the testimonials part. If you find yourself missing inputs like testimonials or market maturity, here are some quick tips:
-- For testimonials: Reach out to early users, beta testers, or colleagues for feedback. Even a single quote can help.
-- For market maturity: Search for competitors, read industry blogs, or ask in relevant forums to gauge how established your niche is.
+
+Besides the product name and what it does, I didn't have anything else at first. This is normal for early-stage founders who are focused on building. If you find yourself missing inputs like testimonials or market maturity, here are some quick tips:
+- For testimonials: If you don't have any yet, focus your landing page on the product's benefits, your founder story, or an invitation to join early access. You can add testimonials later as you get feedback from beta users, friends, or colleagues.
+- For market maturity: Search for competitors, read industry blogs, or ask in relevant forums to gauge how established your niche is. If you're unsure, just do your best—it's okay to leave this blank and update it later.
 It's best to do this research before building your product, but you can still gather these insights at any stage.
 
 ## Writing the Initial Draft
 
-So, I wrote a draft outlining the purpose of the product, the problem it solves, and how it works.
+So, I wrote a draft outlining the purpose of the product, the problem it solves, and how it works. I didn’t have any testimonials or social proof yet, so I focused on making the product’s value clear and actionable.
 
 ```md
 Terrific Poll is a service that allows you to create polls easily embedded in newsletters using any email newsletter service.
@@ -352,7 +353,7 @@ Terrific Poll’s audience is mostly problem-aware and solution-aware—they kno
 
 That was the last point. Now I could use my prompt to ask the language model to generate my landing page copy with all the input for my product.
 
-Here’s the final landing page copy I ended up with (after some manual tweaks):
+Here’s the final landing page copy I ended up with (after some manual tweaks). Note: Since I didn’t have any testimonials or social proof yet, I focused on the product’s benefits and a clear call to action.
 
 ---
 
@@ -380,6 +381,8 @@ Terrific Poll lets you engage your audience with interactive polls, even if your
 
 ---
 
+If you don’t have testimonials or social proof yet, that’s perfectly fine. Focus on making your product’s value clear, and invite visitors to try it or join your early access list. As you get feedback from users, you can update your landing page with quotes or data points that show your product’s impact.
+
 I made a few manual changes to adjust it to my taste, but overall, the changes were minimal.
 
 ## Reflections on the Process
@@ -390,4 +393,4 @@ It's astonishing that language models can assist us with this work. I would have
 
 Using language models as a tool, just like I do to help write code, for areas outside my expertise has really helped me cover my knowledge gaps in those areas, and it might help you too.
 
-**Next steps:** Test your landing page with real users, iterate based on feedback, and keep learning. For more, see [Copyhackers](https://copyhackers.com/) and the [Stripe Atlas guide](https://stripe.com/guides/atlas/landing-page-copy).
+**Next steps:** Test your landing page with real users, iterate based on feedback, and keep learning. If you don’t have testimonials yet, consider inviting friends, colleagues, or early users to try your product and share their thoughts. For more, see [Copyhackers](https://copyhackers.com/) and the [Stripe Atlas guide](https://stripe.com/guides/atlas/landing-page-copy).
