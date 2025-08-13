@@ -24,7 +24,7 @@ The first thing I considered was getting some help. After a quick search, I foun
 
 ## Using Language Models to Assist
 
-The first step I took was to use a language model (I used ChatGPT, but you can use any modern model like Claude or Gemini) to create a prompt based on the guide to help me write a landing page. This approach is similar to how I use language models to assist me in writing code for building products, but this time, I aimed to create effective landing page copy.
+The first step I took was to use a language model (I used GPT-4.1, but you can use any modern model like Claude or Gemini) to create a prompt based on the guide to help me write a landing page. This approach is similar to how I use language models to assist me in writing code for building products, but this time, I aimed to create effective landing page copy.
 
 I provided a language model with the URL to read and asked it to generate a prompt for writing landing pages based on the article.
 
@@ -107,11 +107,7 @@ However, using this prompt requires me to provide eight things, as it's based on
 - Any proof, data, or testimonials (optional—skip if you don’t have these yet)
 ```
 
-
-Besides the product name and what it does, I didn't have anything else at first. This is normal for early-stage founders who are focused on building. If you find yourself missing inputs like testimonials or market maturity, here are some quick tips:
-- For testimonials: If you don't have any yet, focus your landing page on the product's benefits, your founder story, or an invitation to join early access. You can add testimonials later as you get feedback from beta users, friends, or colleagues.
-- For market maturity: Search for competitors, read industry blogs, or ask in relevant forums to gauge how established your niche is. If you're unsure, just do your best—it's okay to leave this blank and update it later.
-It's best to do this research before building your product, but you can still gather these insights at any stage.
+Besides the product name and what it does, I didn't have anything else at first. This is normal for early-stage founders who are focused on building.
 
 ## Writing the Initial Draft
 
@@ -133,7 +129,7 @@ Once you start collecting responses, your poll dashboard will display the number
 
 ## Filling in the Gaps with Language Models
 
-Now that my draft is written, I could use language models again to help me address the missing parts required for the prompt to write my landing page copy. After generating the draft, I reviewed it for clarity, specificity, and tone. I broke up long sentences, replaced vague words, and ensured each section addressed a single idea. Editing the AI output is crucial—don't just copy-paste, but refine for your audience.
+Now that my draft is written, I could use language models again to help me address the missing parts required for the prompt to write my landing page copy. After generating the draft, I reviewed it for clarity and specificity. Editing the AI output is crucial.
 
 ### What the Product Does
 
