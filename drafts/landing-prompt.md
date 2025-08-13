@@ -6,7 +6,7 @@ I'm writing it because marketing is a challenge for me. As a developer, I strugg
 
 ## What audience is it for?
 
-This writing is for developers who share my struggle with writing effective marketing copy.
+This writing is for developers who share my struggle with writing effective marketing copy. By the end of this guide, you'll have a repeatable process for writing landing pages as a developer.
 
 ## How it's distinctive?
 
@@ -20,11 +20,11 @@ Now that I'm working on a portfolio of products, building them is not my main st
 
 ## Seeking Help: The Stripe Guide
 
-The first thing I considered was getting some help. After a quick search, I found an article on Stripe that provides a guide on writing landing pages [Add link to the guide]. I read the entire article, and it made sense to me.
+The first thing I considered was getting some help. After a quick search, I found an article on Stripe that provides a guide on writing landing pages ([Stripe Atlas Landing Page Copy Guide](https://stripe.com/guides/atlas/landing-page-copy)). I read the entire article, and it made sense to me.
 
 ## Using Language Models to Assist
 
-The first step I took was to use language models to create a prompt based on the guide to help me write a landing page. This approach is similar to how I use language models to assist me in writing code for building products, but this time, I aimed to create effective landing page copy.
+The first step I took was to use a language model (I used ChatGPT, but you can use any modern model like Claude or Gemini) to create a prompt based on the guide to help me write a landing page. This approach is similar to how I use language models to assist me in writing code for building products, but this time, I aimed to create effective landing page copy.
 
 I provided a language model with the URL to read and asked it to generate a prompt for writing landing pages based on the article.
 
@@ -107,7 +107,10 @@ However, using this prompt requires me to provide eight things, as it's based on
 - Any proof, data, or testimonials
 ```
 
-Besides the product name and what it does, I didn't have anything else. This is probably my oversight, except for the testimonials part. I should have done some research to cover the other aspects, probably even before building my product, which I didn't.
+Besides the product name and what it does, I didn't have anything else. This is probably my oversight, except for the testimonials part. If you find yourself missing inputs like testimonials or market maturity, here are some quick tips:
+- For testimonials: Reach out to early users, beta testers, or colleagues for feedback. Even a single quote can help.
+- For market maturity: Search for competitors, read industry blogs, or ask in relevant forums to gauge how established your niche is.
+It's best to do this research before building your product, but you can still gather these insights at any stage.
 
 ## Writing the Initial Draft
 
@@ -129,7 +132,7 @@ Once you start collecting responses, your poll dashboard will display the number
 
 ## Filling in the Gaps with Language Models
 
-Now that my draft is written, I could use language models again to help me address the missing parts required for the prompt to write my landing page copy.
+Now that my draft is written, I could use language models again to help me address the missing parts required for the prompt to write my landing page copy. After generating the draft, I reviewed it for clarity, specificity, and tone. I broke up long sentences, replaced vague words, and ensured each section addressed a single idea. Editing the AI output is crucial—don't just copy-paste, but refine for your audience.
 
 ### What the Product Does
 
@@ -320,7 +323,7 @@ setups.
 
 ### Assessing Market Maturity
 
-The next task was to determine the market maturity, meaning whether the product market is new or emerging. Personally, I didn't know how to assess this; it's probably something a good marketer would do. I should learn more about how to evaluate it.
+The next task was to determine the market maturity, meaning whether the product market is new or emerging. Personally, I didn't know how to assess this; it's probably something a good marketer would do. Market maturity affects how much you need to educate your audience. If your product is in a new category, explain more. If it’s established, focus on differentiation. To assess, look for competitors, read reviews, and see how much your target audience already knows. I should learn more about how to evaluate it.
 
 Asking the language model to determine the market maturity provided a quick fix for my lack of knowledge for now.
 
@@ -349,7 +352,35 @@ Terrific Poll’s audience is mostly problem-aware and solution-aware—they kno
 
 That was the last point. Now I could use my prompt to ask the language model to generate my landing page copy with all the input for my product.
 
-The resulting draft looked great to me. I could tell it generated a strong copy that I could use to design a landing page based on it. I made a few manual changes to adjust it to my taste, but overall, the changes were minimal.
+Here’s the final landing page copy I ended up with (after some manual tweaks):
+
+---
+
+# Terrific Poll: Add Interactive Polls to Any Newsletter
+
+**Easily create and embed polls in your email newsletters—no coding, no platform lock-in.**
+
+Terrific Poll lets you engage your audience with interactive polls, even if your newsletter service doesn’t support polls natively. Just create your poll, copy-paste the content, and start collecting responses instantly.
+
+- Works with Beehiiv, Brevo, EmailOctopus, Ghost, HubSpot, Kit, Loops, MailerLite, Sendy, and more
+- No need to upgrade plans or pay for add-ons
+- One-click response collection with pre-filled contact emails
+- Real-time analytics and exportable results
+
+**Ideal for:**
+- Newsletter creators, marketers, agencies, and organizations using any email platform
+
+**Objection-handling:**
+- “Will this affect deliverability?” No—our links are designed to avoid spam triggers.
+- “Is my data safe?” Yes—your data is encrypted and never shared.
+- “Can I customize the look?” The experience is clean and neutral, with no visible Terrific Poll branding.
+
+**Ready to boost engagement?**
+[Start your first poll now]
+
+---
+
+I made a few manual changes to adjust it to my taste, but overall, the changes were minimal.
 
 ## Reflections on the Process
 
@@ -358,3 +389,5 @@ The language model really helped me gain a better understanding of the market my
 It's astonishing that language models can assist us with this work. I would have needed to invest a significant amount of time in market research or hire a professional landing page copywriter.
 
 Using language models as a tool, just like I do to help write code, for areas outside my expertise has really helped me cover my knowledge gaps in those areas, and it might help you too.
+
+**Next steps:** Test your landing page with real users, iterate based on feedback, and keep learning. For more, see [Copyhackers](https://copyhackers.com/) and the [Stripe Atlas guide](https://stripe.com/guides/atlas/landing-page-copy).
