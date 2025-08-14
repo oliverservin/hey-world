@@ -6,7 +6,7 @@ Ahora que trabajo en un portafolio de productos, construirlos no es mi principal
 
 ## Buscando Ayuda: La Guía de Stripe
 
-Lo primero que consideré fue buscar ayuda. Tras una búsqueda rápida, encontré un artículo en Stripe que ofrece una guía para escribir páginas landing ([Guía de Copy para Landing Page de Stripe Atlas](https://stripe.com/guides/atlas/landing-page-copy)). Después de leerlo lo econtré muy útil y práctico.
+Lo primero que consideré fue buscar ayuda. Tras una búsqueda rápida, encontré un artículo en Stripe que ofrece una guía para escribir páginas de aterrizaje ([Guía de Copy para Landing Page de Stripe Atlas](https://stripe.com/guides/atlas/landing-page-copy)). Después de leerlo, lo encontré muy útil y práctico.
 
 ## Usando Modelos de Lenguaje para Asistir
 
@@ -141,31 +141,25 @@ Terrific Poll te permite crear, incrustar y rastrear encuestas en cualquier news
 
 Luego, le pedí que pensara en la audiencia objetivo. Identificó eficazmente como principal audiencia a los creadores y editores de newsletters.
 
-```md
 1. Creadores y Editores de Newsletters
    - Escritores independientes, bloggers y creadores de contenido que envían newsletters regularmente y quieren involucrar a su audiencia con encuestas.
    - Pequeñas empresas y startups que usan newsletters para marketing, feedback o engagement.
-
-1. Equipos de Marketing
+2. Equipos de Marketing
    - Marketers de email que buscan añadir elementos interactivos (como encuestas) a sus campañas sin pagar planes caros o complementos.
    - Agencias que gestionan newsletters para varios clientes en diferentes plataformas.
-
-2. Organizaciones que Usan Diversas Plataformas de Email
+3. Organizaciones que Usan Diversas Plataformas de Email
    - Empresas o grupos que usan plataformas que no soportan encuestas nativamente (ej. Beehiiv, Brevo, EmailOctopus, Ghost, HubSpot, Kit, Loops, MailerLite, Sendy).
    - ONGs, clubes o instituciones educativas que quieren recopilar opiniones de sus listas de correo.
-
-3. Quienquiera que Quiera Encuestas en Email Sin Complicaciones Técnicas
+4. Quienquiera que Quiera Encuestas en Email Sin Complicaciones Técnicas
    - Usuarios que quieren una solución sin código, de copiar y pegar, para añadir encuestas a emails.
    - Personas que quieren analíticas (conteo de respuestas, porcentajes, emails de los respondientes) sin construir su propio sistema.
 
 Terrific Poll es ideal para cualquiera que envíe newsletters y quiera añadir encuestas fácilmente—especialmente si su plataforma no soporta encuestas nativamente o requiere una mejora de pago para hacerlo.
-```
 
 ### Resumiendo los Beneficios Principales
 
 El siguiente paso fue describir los principales beneficios de mi producto. El modelo los resumió de manera efectiva, destacando ocho ventajas clave.
 
-```
 1. Compatibilidad Universal
    - Funciona con cualquier servicio de newsletters, incluso los que no soportan encuestas nativamente.
    - No necesitas cambiar de plataforma ni pagar complementos caros.
@@ -194,13 +188,11 @@ El siguiente paso fue describir los principales beneficios de mi producto. El mo
    - Las encuestas aumentan la interactividad y el engagement en newsletters, ayudándote a entender mejor a tu audiencia.
 
 Terrific Poll facilita añadir encuestas interactivas a cualquier newsletter, recopilar respuestas con un solo clic y ver analíticas detalladas—todo sin complicaciones técnicas ni limitaciones de plataforma.
-```
 
 ### Abordando Objeciones
 
 Luego, me enfoqué en frases para abordar objeciones, que son dudas legítimas que los clientes potenciales pueden tener. El modelo generó diez temas principales de objeciones.
 
-```md
 1. Entregabilidad y Spam
    - "¿Agregar enlaces de encuesta afectará la entregabilidad de mis emails o aumentará la probabilidad de que sean marcados como spam?"
 
@@ -238,69 +230,56 @@ Luego, me enfoqué en frases para abordar objeciones, que son dudas legítimas q
 
 10. Accesibilidad
     - "¿Los enlaces de encuesta y páginas de confirmación son accesibles para todos, incluyendo quienes usan tecnologías de asistencia?"
-```
 
 Podría haber respondido cada una de las preguntas. Sin embargo, dado que estamos utilizando la IA, también le pedí al modelo que generara posibles respuestas a cada objeción.
 
-```md
 1. Entregabilidad y Spam
    - "¿Agregar enlaces de encuesta afectará la entregabilidad de mis emails o aumentará la probabilidad de que sean marcados como spam?"
-
-**Respuesta:** Terrific Poll usa formatos de enlace estándar y reputados, compatibles con todos los proveedores de email principales. Nuestros enlaces están diseñados para evitar disparadores comunes de spam y nunca incluyen adjuntos ni redirecciones sospechosas. Como con cualquier email, seguir buenas prácticas—como usar un dominio verificado y evitar enlaces excesivos—ayuda a mantener alta la entregabilidad.
+    **Respuesta:** Terrific Poll usa formatos de enlace estándar y reputados, compatibles con todos los proveedores de email principales. Nuestros enlaces están diseñados para evitar disparadores comunes de spam y nunca incluyen adjuntos ni redirecciones sospechosas. Como con cualquier email, seguir buenas prácticas—como usar un dominio verificado y evitar enlaces excesivos—ayuda a mantener alta la entregabilidad.
 
 2. Privacidad y Seguridad de Datos
    - "¿Cómo se maneja y protege la información de mi audiencia (especialmente los emails)?"
    - "¿Terrific Poll cumple con GDPR?"
-
-**Respuesta:** Nos tomamos la privacidad y seguridad de los datos muy en serio. Todos los datos, incluidos los emails, se encriptan en tránsito y en reposo. Nunca vendemos ni compartimos la información de tu audiencia con terceros. Terrific Poll está diseñado pensando en GDPR y otras regulaciones de privacidad, y ofrecemos herramientas para que gestiones, exportes o elimines datos según lo necesites.
+    **Respuesta:** Nos tomamos la privacidad y seguridad de los datos muy en serio. Todos los datos, incluidos los emails, se encriptan en tránsito y en reposo. Nunca vendemos ni compartimos la información de tu audiencia con terceros. Terrific Poll está diseñado pensando en GDPR y otras regulaciones de privacidad, y ofrecemos herramientas para que gestiones, exportes o elimines datos según lo necesites.
 
 3. Personalización y Branding
    - "¿Puedo personalizar el aspecto de la encuesta y la página de confirmación para que coincida con mi marca?"
    - "¿Mis suscriptores verán el branding de Terrific Poll en vez del mío?"
-
-**Respuesta:** Por ahora, la página de confirmación no puede personalizarse con los colores, logo o mensajes de tu marca. Sin embargo, Terrific Poll no muestra branding visible a tus suscriptores—la única referencia es el dominio en la barra de direcciones del navegador. La experiencia se mantiene limpia y neutral, para que la atención de tu audiencia esté en la pregunta y opciones de tu encuesta.
+    **Respuesta:** Por ahora, la página de confirmación no puede personalizarse con los colores, logo o mensajes de tu marca. Sin embargo, Terrific Poll no muestra branding visible a tus suscriptores—la única referencia es el dominio en la barra de direcciones del navegador. La experiencia se mantiene limpia y neutral, para que la atención de tu audiencia esté en la pregunta y opciones de tu encuesta.
 
 4. Experiencia de Usuario
    - "¿Mis suscriptores se confundirán al hacer clic y ser llevados a una página de confirmación?"
    - "¿El proceso es fluido o añade fricción?"
-
-**Respuesta:** El proceso está diseñado para ser lo más simple posible: un clic lleva al suscriptor a una página de confirmación clara donde su elección se rellena automáticamente. Este paso extra ayuda a validar votos y da a los usuarios la oportunidad de confirmar su selección, mejorando la calidad de los datos sin añadir confusión.
+    **Respuesta:** El proceso está diseñado para ser lo más simple posible: un clic lleva al suscriptor a una página de confirmación clara donde su elección se rellena automáticamente. Este paso extra ayuda a validar votos y da a los usuarios la oportunidad de confirmar su selección, mejorando la calidad de los datos sin añadir confusión.
 
 5. Limitaciones de Integración
    - "¿Funciona con mi plataforma de newsletters y etiquetas de merge?"
    - "¿Qué pasa si mi plataforma no soporta etiquetas de merge o tiene soporte limitado?"
-
-**Respuesta:** Terrific Poll es compatible con las principales plataformas de newsletters y soporta una amplia variedad de etiquetas de merge para rellenar información del suscriptor. Si tu plataforma tiene soporte limitado, la encuesta igual funcionará—los destinatarios pueden ingresar su email manualmente si es necesario. Ofrecemos guías detalladas para las plataformas más populares y podemos ayudarte con configuraciones personalizadas.
+   **Respuesta:** Terrific Poll es compatible con las principales plataformas de newsletters y soporta una amplia variedad de etiquetas de merge para rellenar información del suscriptor. Si tu plataforma tiene soporte limitado, la encuesta igual funcionará—los destinatarios pueden ingresar su email manualmente si es necesario. Ofrecemos guías detalladas para las plataformas más populares y podemos ayudarte con configuraciones personalizadas.
 
 6. Precisión en el Rastreo de Respuestas
    - "¿Qué tan preciso es el rastreo de respuestas, especialmente si la gente reenvía emails o hace clic varias veces?"
    - "¿Se puede votar más de una vez?"
-
-**Respuesta:** Cada respuesta se rastrea individualmente y usamos emails (cuando están disponibles) para ayudar a prevenir votos duplicados. Aunque reenviar emails puede permitir respuestas múltiples desde el mismo enlace, nuestro panel destaca posibles duplicados para que los revises. Para la mayoría de los casos, esto ofrece una imagen confiable y precisa de las preferencias de tu audiencia.
+   **Respuesta:** Cada respuesta se rastrea individualmente y usamos emails (cuando están disponibles) para ayudar a prevenir votos duplicados. Aunque reenviar emails puede permitir respuestas múltiples desde el mismo enlace, nuestro panel destaca posibles duplicados para que los revises. Para la mayoría de los casos, esto ofrece una imagen confiable y precisa de las preferencias de tu audiencia.
 
 7. Costo y Valor
    - "¿Vale la pena pagar por este servicio si algunas plataformas ofrecen encuestas básicas gratis o como complemento de pago?"
    - "¿Hay costos ocultos o limitaciones?"
-
-**Respuesta:** Terrific Poll ofrece compatibilidad universal, analíticas avanzadas y personalización que la mayoría de las funciones integradas o complementos no pueden igualar. No hay tarifas ocultas—nuestros precios son transparentes y tienes acceso completo a todas las funciones. Para muchos usuarios, el tiempo ahorrado y el mayor engagement justifican la inversión.
+   **Respuesta:** Terrific Poll ofrece compatibilidad universal, analíticas avanzadas y personalización que la mayoría de las funciones integradas o complementos no pueden igualar. No hay tarifas ocultas—nuestros precios son transparentes y tienes acceso completo a todas las funciones. Para muchos usuarios, el tiempo ahorrado y el mayor engagement justifican la inversión.
 
 8. Soporte Técnico y Fiabilidad
    - "¿Qué pasa si algo sale mal—qué tan rápido puedo obtener soporte?"
    - "¿El servicio es confiable y siempre está disponible?"
-
-**Respuesta:** Ofrecemos soporte al cliente rápido por email y chat, con la mayoría de los problemas resueltos en un día hábil. Nuestra infraestructura está diseñada para la fiabilidad, con alta disponibilidad y monitoreo regular para asegurar que tus encuestas siempre estén disponibles.
+   **Respuesta:** Ofrecemos soporte al cliente rápido por email y chat, con la mayoría de los problemas resueltos en un día hábil. Nuestra infraestructura está diseñada para la fiabilidad, con alta disponibilidad y monitoreo regular para asegurar que tus encuestas siempre estén disponibles.
 
 9. Propiedad y Exportación de Datos
    - "¿Puedo exportar fácilmente los resultados y datos de mi encuesta?"
    - "¿Conservo la propiedad de mis datos?"
-
-**Respuesta:** Por supuesto. Puedes exportar los resultados de tu encuesta en cualquier momento en formato CSV. Siempre conservas la propiedad total de tus datos y nunca los usamos para ningún propósito que no sea proveer el servicio.
+   **Respuesta:** Por supuesto. Puedes exportar los resultados de tu encuesta en cualquier momento en formato CSV. Siempre conservas la propiedad total de tus datos y nunca los usamos para ningún propósito que no sea proveer el servicio.
 
 10. Accesibilidad
     - "¿Los enlaces de encuesta y páginas de confirmación son accesibles para todos, incluyendo quienes usan tecnologías de asistencia?"
-
-**Respuesta:** La accesibilidad es una prioridad para nosotros. Nuestros enlaces y páginas de confirmación están diseñados para cumplir con los estándares modernos de accesibilidad (como WCAG), asegurando que todos los usuarios—including quienes usan lectores de pantalla o tecnologías de asistencia—puedan participar sin barreras.
-```
+    **Respuesta:** La accesibilidad es una prioridad para nosotros. Nuestros enlaces y páginas de confirmación están diseñados para cumplir con los estándares modernos de accesibilidad (como WCAG), asegurando que todos los usuarios—including quienes usan lectores de pantalla o tecnologías de asistencia—puedan participar sin barreras.
 
 ### Evaluando la Madurez del Mercado
 
@@ -308,7 +287,6 @@ La tarea consistió en determinar la madurez del mercado, es decir, si el mercad
 
 Pedirle al modelo de lenguaje que determine la madurez del mercado fue una solución rápida para mi falta de conocimiento por ahora.
 
-```md
 El mercado general de email marketing es maduro, pero el nicho específico de encuestas universales, incrustables y sin código para newsletters es nuevo y emergente. Hay demanda clara, pero el espacio aún no está saturado.
 
 **Nivel de Conciencia del Cliente: De Consciente del Problema a Consciente de la Solución**
@@ -327,7 +305,6 @@ El mercado general de email marketing es maduro, pero el nicho específico de en
     La mayoría de la audiencia objetivo probablemente no conoce Terrific Poll por nombre ni sus beneficios únicos, salvo que hayan buscado específicamente este tipo de herramienta.
 
 La audiencia de Terrific Poll es mayormente consciente del problema y de la solución—saben que quieren añadir encuestas a emails y conocen algunas soluciones, pero aún no están familiarizados con Terrific Poll como la mejor o más fácil opción.
-```
 
 ## Generando el Copy Final de la Landing Page
 
