@@ -10,6 +10,15 @@ To put it in perspective, implementing this with a custom-built solution or free
 
 This lesson applies far beyond gallery sharing. For example, when I needed authentication for a new SaaS application, I used the Laravel + Livewire Starter Kit (a free starter kit) and had secure login, registration, and password reset working in less than an hour. For dashboards, using Flux UI Pro (a paid UI kit) let me build polished analytics pages in a single afternoon. Even payment integration was faster with Stripe’s official libraries and dashboard tools. In each case, the right tool let me ship quickly and focus on my product’s unique value.
 
+## My Recommended Stack
+
+From my experience, I can only recommend:
+
+- **Framework:** Laravel + Livewire
+- **UI Kit:** Flux UI Pro
+
+These tools have consistently enabled me to build and ship features quickly, with high quality and minimal hassle. If you’re looking for a reliable stack for web SaaS development, I suggest starting here.
+
 ## How to Choose the Right Tool: A Quick Checklist
 
 - Does it fit your budget and business stage?
@@ -22,15 +31,6 @@ This lesson applies far beyond gallery sharing. For example, when I needed authe
 Of course, every tool comes with trade-offs. Paid tools may introduce ongoing costs, vendor lock-in, or a learning curve. To mitigate these risks, look for tools with clear export options, active communities, and transparent pricing. If you’re working with a team, consider how easy it is to onboard new members and collaborate using the tool.
 
 Sometimes, free or open-source solutions are the best choice—especially for early MVPs, tight budgets, or when you need full customization. I’ve used open-source libraries for rapid prototyping and switched to paid tools as my product matured and my needs changed.
-
-## Recommended Tools & Resources
-
-- **UI Kits:** Flux UI Pro, Tailwind UI, Chakra UI, Material UI
-- **Frameworks:** Laravel, Next.js, Livewire
-- **Authentication:** Laravel + Livewire Starter Kit, Auth0
-- **Payments:** Stripe, Paddle
-- **Dashboards:** Flux UI Pro, Keen UI, Tailwind UI dashboard components
-- **Resources:** [Indie Hackers](https://www.indiehackers.com/), [Product Hunt](https://www.producthunt.com/), [Stack Overflow](https://stackoverflow.com/)
 
 ## Call to Action
 
