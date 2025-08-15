@@ -2,10 +2,12 @@
 
 As a web developer building your own product, you know that speed and quality are everything. Recently, I ran into a challenge while implementing a gallery-sharing feature: users could share galleries with watermarked photos and also had the option to download the gallery. But these two options conflicted—watermarked images are meant for preview only, and allowing downloads would let users access images with watermarks, which isn’t ideal for protecting your work.
 
-The solution was simple: disable the download option whenever the watermark feature is enabled. This keeps shared galleries with watermarks strictly for preview. With Livewire managing backend state and Alpine.js handling frontend interactivity, I could instantly update the UI. For example, I used Alpine.js to bind the `disabled` attribute of the download switch to the watermark setting:
+The solution was simple: disable the download option whenever the watermark feature is enabled. I used Alpine.js to listen for the click event on the watermark switch and immediately set the `downloadable` attribute to false. Then, I bound the `disabled` attribute for the download switch to the value of the watermark attribute, ensuring the download option was dimmed and unselectable whenever watermarking was active. For example:
 
 ```html
-<button :disabled="$wire.watermarked" @click="$wire.downloadable = false">Download Gallery</button>
+<flux:switch wire:model="watermarked" @click="$wire.downloadable = false" label="Watermark photos" />
+
+<flux:switch wire:model="downloadable" x-bind:disabled="$wire.watermarked" label="Visitors can download photos" />
 ```
 
 My UI kit (Flux UI Pro) handled the styling, making the switch dimmed and unselectable when needed. This approach made the change feel instantaneous for users and required minimal code.
