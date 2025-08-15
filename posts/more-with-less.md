@@ -1,13 +1,13 @@
-# El poder de elegir las herramientas adecuadas para desarrolladores web emprendedores
+# Haz más con menos código
 
 Como desarrollador web que crea su propio producto, sabes que la velocidad y la calidad son fundamentales. Recientemente, enfrenté un desafío al implementar una función para compartir galerías. Los usuarios podían compartir galerías con fotos con marca de agua y también tenían la opción de descargar la galería. Sin embargo, estas dos opciones entraban en conflicto. Las imágenes con marca de agua son solo para previsualización, y permitir la descarga permitiría a los usuarios acceder a imágenes con marca de agua, lo cual no es ideal para proteger tu trabajo.
 
 La solución fue sencilla: desactivar la opción de descarga siempre que la función de marca de agua esté habilitada. Utilicé Alpine.js para escuchar el evento de clic en el switch de marca de agua y establecer inmediatamente el atributo `downloadable` en falso. Luego, vinculé el atributo `disabled` del switch de descarga al valor del atributo de marca de agua, asegurando que la opción de descarga estuviera atenuada e inhabilitada mientras la marca de agua estuviera activa. Por ejemplo:
 
 ```html
-<flux:switch wire:model="watermarked" @click="$wire.downloadable = false" label="Marcar fotos con agua" />
+<flux:switch wire:model="watermarked" @click="$wire.downloadable = false" label="Watermarked" />
 
-<flux:switch wire:model="downloadable" x-bind:disabled="$wire.watermarked" label="Los visitantes pueden descargar fotos" />
+<flux:switch wire:model="downloadable" x-bind:disabled="$wire.watermarked" label="Downloadable" />
 ```
 
 Mi kit de UI (Flux UI Pro) se encargó del estilo, haciendo que el switch se viera atenuado e inhabilitado cuando era necesario. Este enfoque permitió que el cambio se sintiera instantáneo para los usuarios y requirió muy poco código.
