@@ -1,0 +1,17 @@
+On Picstome, we recently needed to limit contract creation access for customers. Instead of allowing unlimited contracts, free customers can now create only up to five contracts per month.
+
+We could have implemented this feature naively by throwing an error message directly in the create contracts Livewire action when a free user attempts to create more than five contracts in a month.
+
+However, this would require duplicating or abstracting that logic in other areas, such as the model. We would also need to check this condition when displaying an upgrade message for a better plan or disabling the create contract form.
+
+A better approach I devised is to use Laravel policies. I can implement a Contract policy for the create method to check if the user is authorized to create contracts. This means verifying if the user is a free user and counting how many contracts they have created in a month. If they have already created five contracts, we deny the create contract action.
+
+With this approach, we can also use the Blade directives @can or @cannot to display a message on the front end, informing the user that they cannot create new contracts and need to subscribe to continue.
+
+Additionally, with policies, we can use the cannot() and can() helpers on the user() to dynamically check if the user is authorized to create contracts. If not, we can disable the create button, preventing the user from submitting the create contract form.
+
+Since our application uses Livewire, we can easily implement Livewire authorizations with $this->authorize() to validate on the backend that the user is allowed to create a new contract.
+
+Overall, using Laravel policies has helped us maintain clean code without duplications, leveraging existing framework features that simplify our work with maintainable code, which will pay off in the long term.
+
+I highly recommend using Laravel policies in SaaS applications for limiting or managing quotas for features, as they help keep your application maintainable.
