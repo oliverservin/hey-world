@@ -6,6 +6,23 @@ However, this would require duplicating or abstracting that logic in other areas
 
 A better approach I devised is to use Laravel policies. I can implement a Contract policy for the create method to check if the user is authorized to create contracts. This means verifying if the user is a free user and counting how many contracts they have created in a month. If they have already created five contracts, we deny the create contract action.
 
+```php
+class ContractPolicy {
+    public function create(User $user): bool
+    {
+        if ($user->subscribed()) {
+            return true;
+        }
+
+        $contractsThisMonth = $user->contracts()
+            ->whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])
+            ->count();
+
+        return $contractsThisMonth < 5;
+    }
+}
+```
+
 With this approach, we can also use the Blade directives @can or @cannot to display a message on the front end, informing the user that they cannot create new contracts and need to subscribe to continue.
 
 Additionally, with policies, we can use the cannot() and can() helpers on the user() to dynamically check if the user is authorized to create contracts. If not, we can disable the create button, preventing the user from submitting the create contract form.
