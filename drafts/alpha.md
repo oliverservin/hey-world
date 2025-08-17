@@ -1,6 +1,28 @@
-On Picstome, we recently needed to limit contract creation access for customers. Instead of allowing unlimited contracts, free customers can now create only up to five contracts per month.
+On Picstome, we recently needed to limit contract creation access for customers. Instead of allowing unlimited contracts, free customers can now create only up to five contracts per month. To keep it simple, the monthly contract count starts on the first day of the month, regardless of when the user account was created.
 
 We could have implemented this feature naively by throwing an error message directly in the create contracts Livewire action when a free user attempts to create more than five contracts in a month.
+
+```php
+use Livewire\Volt\Component;
+
+new class extends Component
+{
+    // ...
+
+    public function save()
+    {
+        $contractsThisMonth = $user->contracts()
+            ->whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])
+            ->count();
+
+        if ($contractsThisMonth >= 5 AND !$user->subscribed()) {
+            $this->addError('limit.reached', 'You have reached the contract limit.');
+        };
+
+        // ...
+    }
+}; ?>
+```
 
 However, this would require duplicating or abstracting that logic in other areas, such as the model. We would also need to check this condition when displaying an upgrade message for a better plan or disabling the create contract form.
 
