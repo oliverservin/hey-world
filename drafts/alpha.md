@@ -1,5 +1,6 @@
-On Picstome, we recently needed to limit contract creation access for customers. Instead of allowing unlimited contracts, free customers can now create only up to five contracts per month. To keep it simple, the monthly contract count starts on the first day of the month, regardless of when the user account was created.
+# Making SaaS Limits Maintainable: Contract Quotas with Laravel Policies
 
+On Picstome, we recently needed to limit contract creation access for customers. Instead of allowing unlimited contracts, free customers can now create only up to five contracts per month. To keep it simple, the monthly contract count starts on the first day of the month, regardless of when the user account was created.
 
 ## The naive approach
 
