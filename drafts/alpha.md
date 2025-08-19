@@ -20,11 +20,16 @@ Optar por una landing page minimalista te permite lanzar tu producto mucho más 
 
 Cuando cambias una característica de tu producto o agregas una nueva funcionalidad, puedes actualizar tu landing page rápidamente si está basada en texto. Basta con modificar unas líneas para comunicar el cambio o la novedad a tus usuarios. Sin embargo, si tu landing page depende de visuales específicos para mostrar cómo funciona una característica, cada cambio implica crear o modificar imágenes, gráficos o animaciones. Esto no solo consume más tiempo, sino que puede retrasar la actualización de la página. En el peor de los casos, podrías terminar con una landing page desactualizada, que no refleja las últimas mejoras de tu producto y confunde a tus visitantes.
 
-## Recomendación para nuevos proyectos
+## Recomendación para crear una landing page minimalista
 
-Si estás comenzando un nuevo producto, proyecto o servicio y te encuentras en la fase de creación de tu landing page para promoverlo, te recomiendo que empieces con una landing page minimalista, donde el texto sea el protagonista y los visuales sean mínimos.
+Para crear una landing page minimalista y efectiva, te recomiendo seguir una estructura sencilla pero poderosa:
 
-Esto te permitirá lanzar rápidamente.
+- **Encabezado:** Una frase clara y directa que capture la atención y comunique el valor principal de tu producto.
+- **Subencabezado:** Expande la idea del encabezado, explicando brevemente cómo tu producto resuelve el problema de tu audiencia.
+- **Cuerpo:** Describe las características y beneficios clave de tu producto. Si tienes testimonios, logros o cualquier prueba social, inclúyelos aquí para reforzar la confianza.
+- **Llamado a la acción (CTA):** Termina con una invitación clara y específica para que el visitante realice la acción que deseas (por ejemplo, registrarse, solicitar acceso, descargar, etc.).
+
+Esta estructura te permitirá lanzar rápidamente y comunicar de forma efectiva el valor de tu producto, facilitando la validación y el aprendizaje desde el primer momento.
 
 ## Evolución de la landing page
 
