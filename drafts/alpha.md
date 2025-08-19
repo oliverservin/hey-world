@@ -1,6 +1,6 @@
 # Decepción con GPT-5 mini
 
-En las últimas semanas, he incorporado completamente el uso de IA en mi flujo de trabajo como creador de aplicaciones web. Esto incluye tanto tareas de marketing como en la programación del producto.
+En las últimas semanas, he incorporado completamente el uso de IA en mi flujo de trabajo como creador de aplicaciones web. Utilizo modelos de inteligencia artificial para tareas clave como la redacción de landing pages, la implementación de nuevas funcionalidades mediante desarrollo guiado por pruebas (TDD), y la corrección de errores en mis productos. Además, la IA me apoya en actividades de marketing y en la programación diaria, lo que ha transformado la manera en que desarrollo y mantengo mis aplicaciones.
 
 OpenAI lanzó recientemente una nueva versión de su modelo GPT, la familia de modelos GPT-5 mini. Además, como estoy suscrito a GitHub Copilot, anunciaron que el uso de GPT-5 mini es ilimitado en mi suscripción.
 
