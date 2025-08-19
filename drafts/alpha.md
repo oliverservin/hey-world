@@ -1,107 +1,33 @@
-# Making SaaS Limits Maintainable: Contract Quotas with Laravel Policies
+# Mi experiencia reciente con IA en el flujo de trabajo
 
-On Picstome, we recently needed to limit contract creation access for customers. Instead of allowing unlimited contracts, free customers can now create only up to five contracts per month. To keep it simple, the monthly contract count starts on the first day of the month, regardless of when the user account was created.
+En las últimas semanas, he incorporado completamente el uso de IA en mi flujo de trabajo como creador de aplicaciones web, tanto en marketing como en el desarrollo del producto. Dado que OpenAI lanzó una nueva versión de su modelo GPT con la familia de modelos GPT-5 y que estoy suscrito a GitHub Copilot, también anunciaron recientemente que el uso de GPT-5 mini es ilimitado en mi suscripción. Así que fue el momento indicado para probarlo y utilizarlo en mi flujo de trabajo actual, y quizás hacer el cambio, ya que actualmente uso principalmente GPT-4.1, que también ofrece un uso ilimitado.
 
-## The naive approach
+## Probando GPT-5 en mi flujo de trabajo
 
-We could have implemented this feature naively by throwing an error message directly in the create contracts Livewire action when a free user attempts to create more than five contracts in a month.
+### Experiencia escribiendo código con GPT-5
 
-```php
-use Livewire\Volt\Component;
+Comencé a utilizar GPT-5 para escribir código en mis productos. Lamentablemente, el modo agentic de GPT-5 no es tan autónomo como el de GPT-4.1, ya que constantemente me pide confirmación sobre los cambios que estoy haciendo en los archivos y debo supervisar y aceptar los procesos que GPT-5 propone. Con GPT-4.1, esto no sucedía tanto; generalmente, GPT-4.1 podía ser más autónomo y completar las tareas por sí mismo. Aun así, continué usando GPT-5 en mi flujo de trabajo.
 
-new class extends Component
-{
-    // ...
+### Generación de commits y mensajes con IA
 
-    public function save()
-    {
-        $contractsThisMonth = $user->contracts()
-            ->whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])
-            ->count();
+Otra de las tareas comunes que realizo con IA es generar commits y mensajes para los cambios que voy haciendo en el código. Aquí, GPT-5 mini se siente realmente perezoso. Generalmente, le podía pedir a GPT-4.1 "commit" y buscaba los cambios que había hecho en el repositorio para generar un commit y un mensaje apropiado. Con GPT-5, esto no sucede; aunque puede ver los cambios, el mensaje de commit es tan genérico como "changes updated". Aquí comencé a ver señales de alerta con este modelo. Aun así, continué usando GPT-5 mini en mi flujo de trabajo.
 
-        if ($contractsThisMonth >= 5 AND !$user->subscribed()) {
-            $this->addError('limit.reached', 'You have reached the contract limit.');
-        };
+### Generación de material de marketing con IA
 
-        // ...
-    }
-}; ?>
-```
+Otra área donde uso bastante la IA es para escribir material de marketing, como landing pages e investigación de mercado. GPT-5 me daba respuestas algo genéricas y con una redacción no tan fácil de entender. Incluso al pedirle que me escribiera una landing page basada en el prompt que desarrollé, el resultado era un texto muy robótico, con un uso de palabras y una redacción que un humano quizás no usaría, lo que resultaba en textos confusos o difíciles de entender. En comparación, al generar la investigación de mercado con GPT-4.1, la diferencia fue abismal; los resultados fueron mucho mejores en mi percepción, con textos fáciles de leer y comprensibles. También lo comparé pidiéndole que me generara un borrador de landing page para un producto, justo como se lo pedí a GPT-5 mini, y el resultado fue notablemente mejor con GPT-4.1. Aquí fue donde finalmente me di cuenta de que GPT-5 mini no me ofrecía tan buenos resultados, así que volví a utilizar GPT-4.1 como mi modelo de IA por defecto.
 
-However, this would require duplicating or abstracting that logic in other areas, such as the model. We would also need to check this condition when displaying an upgrade message for a better plan or disabling the create contract form.
+### Recomendaciones de OpenAI sobre la migración
 
-## Centralizing authorization with a Contract policy
+Haciendo un poco de investigación, OpenAI afirma que si quiero migrar de GPT-4.1 a la familia de modelos GPT-5, debería usar GPT-5 configurado en un razonamiento bajo y no usar GPT-5 mini como lo había estado haciendo. Sin embargo, GitHub Copilot, aunque ofrece GPT-5, no está dentro de los modelos de IA de uso ilimitado. Por ahora, GPT-4.1 y GPT-5 mini son los únicos modelos de uso ilimitado, por lo que no he podido comparar GPT-4.1 con GPT-5 y con un razonamiento bajo como recomienda OpenAI.
 
-A better approach I devised is to use Laravel policies. I can implement a Contract policy for the create method to check if the user is authorized to create contracts. This means verifying if the user is a free user and counting how many contracts they have created in a month. If they have already created five contracts, we deny the create contract action.
+### Consejos antes de migrar a GPT-5
 
-```php
-class ContractPolicy {
-    public function create(User $user): bool
-    {
-        if ($user->subscribed()) {
-            return true;
-        }
+Así que, si aún no has migrado a usar GPT-5, te recomiendo que hagas pruebas primero con tu flujo de trabajo actual antes de realizar una migración total a este modelo. Los resultados pueden no ser los que esperabas, a pesar de ser un modelo más nuevo y recién presentado.
 
-        $contractsThisMonth = $user->contracts()
-            ->whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])
-            ->count();
+### Confusión con la variedad de modelos de OpenAI
 
-        return $contractsThisMonth < 5;
-    }
-}
-```
+OpenAI siempre me ha resultado confuso con la gran variedad de modelos que tiene. Con GPT-5, trataron de unificar tanto modelos de razonamiento como modelos sin razonamiento, algo que ahora me parece aún más confuso, ya que generalmente prefiero no usar modelos con razonamiento. Por ahora, me quedaré usando GPT-4.1 por defecto en mi flujo de trabajo y estaré pendiente de los cambios o mejoras que reciba GPT-5.
 
-## Blade integration
+## Conclusión y recomendación personal
 
-With this approach, we can also use the Blade directives @can or @cannot to display a message on the front end, informing the user that they cannot create new contracts and need to subscribe to continue.
-
-```php
-@cannot('create', App\Models\Contract::class)
-    <flux:callout>
-        <flux:callout.heading>Plan limit reached</flux:callout.heading>
-        <flux:callout.text>
-            Your current plan does not support creating more contracts. Upgrade your plan to create additional contracts.
-        </flux:callout.text>
-        <x-slot name="actions">
-            <flux:button :href="route('subscribe')">Upgrade</flux:button>
-        </x-slot>
-    </flux:callout>
-@endcannot
-```
-
-## Button & UI behavior
-
-Additionally, with policies, we can use the cannot() and can() helpers on the user() to dynamically check if the user is authorized to create contracts. If not, we can disable the create button, preventing the user from submitting the create contract form.
-
-```php
-<flux:button
-    type="submit"
-    :disabled="auth()->user()->cannot('create', App\Models\Contract::class)"
->'Save'</flux:button>
-```
-
-## Livewire integration
-
-Since our application uses Livewire, we can easily implement Livewire authorizations with $this->authorize() to validate on the backend that the user is allowed to create a new contract.
-
-```php
-use Livewire\Volt\Component;
-
-new class extends Component
-{
-    // ...
-
-    public function save()
-    {
-        $this->authorize('create', Contract::class);
-
-        // ...
-    }
-}; ?>
-```
-
-## Conclusion & recommendation
-
-Overall, using Laravel policies has helped us maintain clean code without duplications, leveraging existing framework features that simplify our work with maintainable code, which will pay off in the long term.
-
-I highly recommend using Laravel policies in SaaS applications for limiting or managing quotas for features, as they help keep your application maintainable.
+Por ahora, si no quieres hacer pruebas con tu flujo de trabajo, te recomiendo que te apegues a GPT-4.1. En mi opinión personal, aunque es una versión anterior, obtengo mejores resultados que realmente me hacen sentir más productivo.
