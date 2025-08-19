@@ -1,4 +1,4 @@
-# Lanza rápido: El poder de una landing page minimalista
+# Lanza rápido: Con una landing page minimalista
 
 La landing page es el primer paso para validar el interés en tu producto.
 
@@ -10,7 +10,7 @@ De esta manera, no solo captas la atención de quienes realmente necesitan tu so
 
 Aunque muchas startups con grandes presupuestos apuestan por páginas llenas de animaciones y diseños sofisticados, la realidad para quienes emprendemos con recursos limitados es diferente.
 
-Explora cómo una landing page sencilla, enfocada en el texto y una comunicación clara, puede ayudarte a lanzar tu producto más rápido y adaptarse mejor a los cambios.
+Una landing page sencilla, enfocada en el texto y una comunicación clara, puede ayudarte a lanzar tu producto más rápido y adaptarse mejor a los cambios.
 
 ## Emprender con recursos limitados
 
