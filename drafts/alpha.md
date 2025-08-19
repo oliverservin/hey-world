@@ -4,7 +4,7 @@ Crear una landing page es uno de los pasos más importantes para dar a conocer t
 
 Aunque muchas startups con grandes presupuestos apuestan por páginas llenas de animaciones y diseños sofisticados, la realidad para quienes emprendemos con recursos limitados es diferente.
 
-Explora cómo una landing page sencilla, enfocada en el texto y una comunicación clara, puede ayudarte a lanzar tu producto más rápido y adaptarte mejor a los cambios.
+Explora cómo una landing page sencilla, enfocada en el texto y una comunicación clara, puede ayudarte a lanzar tu producto más rápido y adaptarse mejor a los cambios.
 
 ## Emprender con recursos limitados
 
@@ -22,11 +22,11 @@ Al evitar visuales, también podemos crear la landing page más rápido.
 
 Si estamos desarrollando nuestro producto continuamente, las funcionalidades o características pueden cambiar rápidamente.
 
-Tener una landing page basada en texto me permite actualizarla tan rápido como desarrollo el producto; el texto es fácil de editar, mientras que los visuales no lo son.
+Tener una landing page basada en texto te permite actualizarla tan rápido como desarrollas el producto; el texto es fácil de editar, mientras que los visuales no lo son.
 
 Incluir visuales puede ralentizar el proceso de actualización de la landing page.
 
-Una landing page de texto nos permite actualizar rápidamente y comunicar mejor mi producto, incluso si este cambia de audiencia o pivotea hacia algo diferente.
+Una landing page de texto nos permite actualizar rápidamente y comunicar mejor tu producto, incluso si este cambia de audiencia o pivotea hacia algo diferente.
 
 El texto es fácil de editar.
 
@@ -40,4 +40,4 @@ Esto te permitirá lanzar rápidamente.
 
 La landing page que has creado no tiene que ser la versión final; puedes editarla, mejorarla y hacer que evolucione junto con tu producto, proyecto o servicio, incorporando nuevas funcionalidades y propuestas.
 
-Esto hará que la landing page sea más dinámica.
+Esto hará que la landing page sea más viva.
