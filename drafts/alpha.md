@@ -16,6 +16,10 @@ Es fundamental transmitir el problema que alguien tiene (el pain point), dar a c
 
 Optar por una landing page minimalista te permite lanzar tu producto mucho más rápido. Al centrarte en lo esencial—el mensaje y la propuesta de valor—puedes evitar retrasos causados por la creación de animaciones, gráficos complejos o diseños elaborados. Esta rapidez es clave para comenzar a validar tu idea y tu producto cuanto antes, obteniendo feedback real de tus usuarios y ajustando tu propuesta según sus necesidades. Un diseño sencillo no solo acelera el proceso de lanzamiento, sino que también facilita futuras actualizaciones, permitiéndote evolucionar tu landing page a medida que tu producto crece y cambia.
 
+## El texto se edita fácil, los visuales no
+
+Cuando cambias una característica de tu producto o agregas una nueva funcionalidad, puedes actualizar tu landing page rápidamente si está basada en texto. Basta con modificar unas líneas para comunicar el cambio o la novedad a tus usuarios. Sin embargo, si tu landing page depende de visuales específicos para mostrar cómo funciona una característica, cada cambio implica crear o modificar imágenes, gráficos o animaciones. Esto no solo consume más tiempo, sino que puede retrasar la actualización de la página. En el peor de los casos, podrías terminar con una landing page desactualizada, que no refleja las últimas mejoras de tu producto y confunde a tus visitantes.
+
 ## Recomendación para nuevos proyectos
 
 Si estás comenzando un nuevo producto, proyecto o servicio y te encuentras en la fase de creación de tu landing page para promoverlo, te recomiendo que empieces con una landing page minimalista, donde el texto sea el protagonista y los visuales sean mínimos.
