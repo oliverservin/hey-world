@@ -1,6 +1,6 @@
 # Lanza rápido: El poder de una landing page minimalista
 
-Crear una landing page es uno de los pasos más importantes para dar a conocer tu nueva aplicación web.
+La landing page es el primer paso para validar el interés en tu producto. Antes de invertir tiempo y recursos en el desarrollo completo, una landing page te permite presentar tu propuesta a potenciales usuarios y medir su reacción. Es el espacio donde puedes comunicar directamente el problema que enfrenta tu audiencia (su pain point) y mostrar cómo tu producto aporta valor al resolverlo. De esta manera, no solo captas la atención de quienes realmente necesitan tu solución, sino que también obtienes información valiosa sobre el interés real en lo que ofreces, lo que te ayuda a ajustar y mejorar tu producto desde el inicio.
 
 Aunque muchas startups con grandes presupuestos apuestan por páginas llenas de animaciones y diseños sofisticados, la realidad para quienes emprendemos con recursos limitados es diferente.
 
