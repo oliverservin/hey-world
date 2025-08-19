@@ -8,11 +8,9 @@ Por eso, decidí probar GPT-5 mini y utilizarlo en mi flujo de trabajo actual. Q
 
 ## Experiencia escribiendo código con GPT-5 mini
 
-Comencé a utilizar GPT-5 mini para escribir código en mis productos. Sin embargo, noté que el modo agentic de GPT-5 mini no es tan autónomo como el de GPT-4.1.
+Comencé a utilizar GPT-5 mini para escribir código en mis productos, esperando que pudiera trabajar de manera autónoma. Para mí, la autonomía significa que puedo dejar a la IA trabajando en una tarea sin necesidad de supervisarla constantemente, mientras pienso en el siguiente problema que debo resolver. Sin embargo, noté que el modo agentic de GPT-5 mini no es tan autónomo como el de GPT-4.1. GPT-5 mini me pide confirmación sobre los cambios que realiza en los archivos y requiere que supervise y acepte cada proceso que propone.
 
-GPT-5 mini constantemente me pide confirmación sobre los cambios que hago en los archivos. Debo supervisar y aceptar los procesos que GPT-5 mini propone.
-
-Con GPT-4.1, esto no sucedía tanto. Generalmente, GPT-4.1 podía ser más autónomo y completar las tareas por sí mismo.
+Con GPT-4.1, esto no sucedía tanto. Generalmente, GPT-4.1 podía completar las tareas por sí mismo, permitiéndome avanzar en mi flujo de trabajo sin interrupciones. Esta diferencia en el nivel de autonomía impactó mi productividad, ya que con GPT-5 mini tuve que dedicar más tiempo a supervisar y aprobar cada paso, en lugar de enfocarme en planear y abordar nuevas tareas.
 
 Aun así, decidí continuar usando GPT-5 mini en mi flujo de trabajo.
 
