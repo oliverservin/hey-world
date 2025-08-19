@@ -36,11 +36,11 @@ Aquí fue donde finalmente me di cuenta de que GPT-5 mini no me ofrecía tan bue
 
 ## Recomendaciones de OpenAI sobre la migración
 
-Haciendo un poco de investigación, OpenAI afirma que si quiero migrar de GPT-4.1 a la familia de modelos GPT-5 mini, debería usar GPT-5 mini configurado en un razonamiento bajo y no usar GPT-5 mini como lo había estado haciendo.
+Haciendo un poco de investigación, OpenAI afirma que si quiero migrar de GPT-4.1 a la familia de modelos GPT-5 mini, debería usar GPT-5 mini configurado en un razonamiento bajo y no usar GPT-5 mini como lo había estado haciendo. Sin embargo, aunque GitHub Copilot ofrece acceso a GPT-5, este modelo no está incluido dentro de los modelos de uso ilimitado.
 
-Sin embargo, GitHub Copilot, aunque ofrece GPT-5, no está dentro de los modelos de IA de uso ilimitado. Por ahora, GPT-4.1 y GPT-5 mini son los únicos modelos de uso ilimitado.
+En mi caso, no he comparado GPT-5 (no mini) con GPT-4.1 porque el uso de GPT-5 consume una solicitud premium, y dependiendo del plan, estas solicitudes son limitadas. Por ejemplo, en el plan Pro, solo se permiten 300 solicitudes premium al mes. Esto hace que sea poco práctico utilizar GPT-5 para tareas cotidianas o para realizar comparaciones extensas, ya que podría agotar rápidamente el límite mensual de solicitudes premium.
 
-Por lo tanto, no he podido comparar GPT-4.1 con GPT-5 y con un razonamiento bajo como recomienda OpenAI.
+Por ahora, GPT-4.1 y GPT-5 mini siguen siendo los únicos modelos de uso ilimitado disponibles en mi flujo de trabajo.
 
 ## Consejos antes de migrar a GPT-5 mini
 
@@ -58,6 +58,6 @@ Por ahora, me quedaré usando GPT-4.1 por defecto en mi flujo de trabajo y estar
 
 ## Recomendación personal
 
-Por ahora, si no quieres hacer pruebas con tu flujo de trabajo, te recomiendo que te apegues a GPT-4.1.
+Por ahora, si no quieres hacer pruebas con tu flujo de trabajo, te recomiendo que te apegues a GPT-4.1. En mi opinión personal, aunque es una versión anterior, obtengo mejores resultados que realmente me hacen sentir más productivo.
 
-En mi opinión personal, aunque es una versión anterior, obtengo mejores resultados que realmente me hacen sentir más productivo.
+Sin embargo, estaré atento a cualquier cambio en las suscripciones de GitHub Copilot, especialmente si en algún momento ofrecen acceso ilimitado a la familia de modelos GPT-5, aunque sea con razonamiento bajo. Si esto ocurre, definitivamente volveré a probar los modelos GPT-5 en mi flujo de trabajo para evaluar si pueden ofrecer mejores resultados y mayor autonomía.
