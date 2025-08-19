@@ -1,6 +1,12 @@
+## La importancia de la landing page
+
 Una parte esencial para promover una nueva aplicación web es la landing page del producto. Generalmente, estamos acostumbrados a ver landing pages muy visuales, llenas de interactividad o animaciones que, a primera vista, pueden impresionar. Estas suelen ser landing pages de productos que reciben inyección de capital de riesgo, lo que les permite contratar a excelentes diseñadores.
 
+## Emprender con recursos limitados
+
 Sin embargo, aquellos que intentamos emprender de forma independiente, como yo, y contamos con recursos limitados, debemos enfocarnos más en comunicar el mensaje correcto. Es fundamental transmitir el problema que alguien tiene (el pain point), dar a conocer nuestra solución y explicar cómo la resuelve.
+
+## Ventajas de una landing page minimalista
 
 Toda esta comunicación puede hacerse con texto y visuales mínimos, y el producto aún puede destacar. Ser más directos en nuestra propuesta es clave.
 
@@ -8,6 +14,10 @@ Al evitar visuales, también podemos crear la landing page más rápido. Si esta
 
 Incluir visuales puede ralentizar el proceso de actualización de la landing page. Una landing page de texto nos permite actualizar rápidamente y comunicar mejor mi producto, incluso si este cambia de audiencia o pivotea hacia algo diferente. El texto es fácil de editar.
 
+## Recomendación para nuevos proyectos
+
 Si estás comenzando un nuevo producto, proyecto o servicio y te encuentras en la fase de creación de tu landing page para promoverlo, te recomiendo que empieces con una landing page minimalista, donde el texto sea el protagonista y los visuales sean mínimos. Esto te permitirá lanzar rápidamente.
+
+## Evolución de la landing page
 
 La landing page que has creado no tiene que ser la versión final; puedes editarla, mejorarla y hacer que evolucione junto con tu producto, proyecto o servicio, incorporando nuevas funcionalidades y propuestas. Esto hará que la landing page sea más dinámica.
