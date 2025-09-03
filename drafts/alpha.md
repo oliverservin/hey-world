@@ -1,10 +1,10 @@
-Picstome currently has no customers, but it was fun to implement a feature that deletes galleries when customers stop paying for their subscriptions. Since the primary cost for Picstome is storage, our terms and conditions state that all galleries will be deleted seven days after a subscription expires.
+Picstome currently has no customers, but it was fun to implement a feature that deletes galleries when customers stop paying for their subscriptions. Since storage is the primary cost for Picstome, our terms and conditions state that all galleries will be deleted seven days after a subscription expires.
 
-The plan is to send reminders before a subscription expires. We decided that three reminders would suffice: 15 days, 7 days, and 1 day before expiration. Additionally, we will notify customers that all galleries will be deleted one day after the subscription has expired. Finally, after seven days of an expired subscription, we will delete all customer galleries.
+We plan to send reminders before a subscription expires. We decided that three reminders would suffice: 15 days, 7 days, and 1 day before expiration. Additionally, we will notify customers that all galleries will be deleted one day after the subscription has expired. Finally, after seven days of an expired subscription, we will delete all customer galleries.
 
-To implement this, I needed to write an artisan command to handle the logic.
+To implement this, I wrote an artisan command to handle the logic.
 
-Starting with the notifications for expiring subscriptions, I needed a way to configure the warning days for adjusting the notification timing later. I created a configuration for the warning days that holds an array of days to be used for sending expiring soon warnings. Since we use both team and personal subscriptions, I retrieve all teams to check if their subscription is still active but marked for cancellation. For each configured warning day, I check if the end date matches the warning target date. If it does, we send the subscription expiring soon notification.
+Starting with the notifications for expiring subscriptions, I needed a way to configure the warning days for adjusting the notification timing later. I created a configuration for the warning days that holds an array of days to be used for sending expiring soon warnings. Since we offer both team and personal subscriptions, I retrieve all teams to check if their subscriptions are still active but marked for cancellation. For each configured warning day, I check if the end date matches the warning target date. If it does, we send the subscription expiring soon notification.
 
 ```php
 // app/Console/Commands/SubscriptionsCleanupCommand.php
