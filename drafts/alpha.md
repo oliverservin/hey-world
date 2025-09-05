@@ -1,166 +1,243 @@
-Picstome currently has no customers, but it was fun to implement a feature that deletes galleries when customers stop paying for their subscriptions. Since storage is the primary cost for Picstome, our terms and conditions state that all galleries will be deleted seven days after a subscription expires.
+Now that Picstome offers handles for public profiles for photographers, the next best use case for this handle is to show bio links so that photographers can showcase their social profiles in one single place, just like an alternative to linktr.ee.
 
-We plan to send reminders before a subscription expires. We decided that three reminders would suffice: 15 days, 7 days, and 1 day before expiration. Additionally, we will notify customers that all galleries will be deleted one day after the subscription has expired. Finally, after seven days of an expired subscription, we will delete all customer galleries.
+Customers should be able to create bio links, and we would show them in their Picstome public profile. It seems like a simple feature, but the implementation had a few challenges.
 
-To implement this, I wrote an artisan command to handle the logic.
-
-Starting with the notifications for expiring subscriptions, I needed a way to configure the warning days for adjusting the notification timing later. I created a configuration for the warning days that holds an array of days to be used for sending expiring soon warnings. Since we offer both team and personal subscriptions, I retrieve all teams to check if their subscriptions are still active but marked for cancellation. For each configured warning day, I check if the end date matches the warning target date. If it does, we send the subscription expiring soon notification.
+The first thing was to create a new Bio Link model with its corresponding migrations. I basically only needed two fields, a title and a URL, but I also needed a column to store the team ID to make the relationship with the customer's personal team and an order column for sorting links.
 
 ```php
-// app/Console/Commands/SubscriptionsCleanupCommand.php
+// database/migrations/2025_09_04_002242_create_bio_links_table.php
 
-class SubscriptionsCleanupCommand extends Command
+return new class extends Migration
 {
-    // ...
-
-    public function handle()
+    public function up(): void
     {
-        $this->notifyExpiringSoon();
-
-        return 0;
-    }
-
-    private function notifyExpiringSoon()
-    {
-        $warningDays = config('picstome.subscription_warning_days', [15, 7, 1]);
-
-        Team::has('subscriptions')->cursor()->each(function ($team) use ($warningDays) {
-            $subscription = $team->subscription();
-
-            if ($subscription && $subscription->stripe_status === 'active' && $subscription->ends_at) {
-                foreach ($warningDays as $days) {
-                    $targetDate = now()->addDays($days);
-
-                    if ($subscription->ends_at->isSameDay($targetDate)) {
-                        $team->owner->notify(
-                            new SubscriptionExpiringSoon($days)
-                        );
-
-                        break;
-                    }
-                }
-            }
+        Schema::create('bio_links', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('team_id')->constrained()->onDelete('cascade');
+            $table->string('title');
+            $table->string('url');
+            $table->integer('order')->default(0);
+            $table->timestamps();
         });
     }
+};
+```
+
+The next step was to create a Laravel folio page so customers can manage their bio links, create, update, and delete them.
+
+To add a new link, I used an add link action to simply store the add form and then reset the form fields. It uses a Livewire Form so that I can reuse this form logic for when editing bio links.
+
+```php
+// resources/views/pages/bio-links.blade.php
+
+new class extends Component
+{
+    public BioLinkForm $addForm;
+
+    public function addLink()
+    {
+        $this->addForm->store();
+        $this->addForm->resetForm();
+    }
 }
 ```
 
-The notification is straightforward; it informs the customer that their subscription is about to expire in X days, along with a link to renew their subscription if they wish to continue using our service.
+The Form BioLinkForm doesn't exist yet, so I created it and added the title and URL field properties, the validation rules for the fields, the store method that validates the data, and lastly creates the bio link for the current user's team. Also, a helper to reset the form properties.
 
 ```php
-// app/Notifications/SubscriptionExpiringSoon.php
+class BioLinkForm extends Form
+{
+    public ?string $title = null;
 
-class SubscriptionExpiringSoon extends Notification
+    public ?string $url = null;
+
+    protected function rules()
+    {
+        return [
+            'title' => ['required', 'string', 'max:255'],
+            'url' => ['required', 'url'],
+        ];
+    }
+
+    public function store()
+    {
+        $this->validate();
+
+        return Auth::user()->currentTeam->bioLinks()->create([
+            'title' => $this->title,
+            'url' => $this->url,
+        ]);
+    }
+
+    public function resetForm()
+    {
+        $this->reset(['title', 'url']);
+    }
+}
+```
+
+For editing links, I'm thinking of using an inline edit, so that when the user clicks the edit link button, it shows the edit link fields inline instead of opening a new page. To support this, I need an edit link action in the Livewire component to first verify the user can edit the selected link with a bio link policy, assign the editing link that the user is actually editing, and populate the edit form with the selected link.
+
+```php
+// resources/views/pages/bio-links.blade.php
+
+class BioLinkForm extends Form
 {
     // ...
 
-    public function __construct(
-        public int $daysLeft
-    ) {}
+    public BioLinkForm $editForm;
 
-    public function toMail($notifiable)
+    public ?BioLink $editingLink = null;
+
+    public function editLink(BioLink $link)
     {
-        return (new MailMessage)
-                    ->line(__('Your subscription expires in :days days.', ['days' => $this->daysLeft]))
-                    ->action(__('Renew Subscription'), route('billing-portal'))
-                    ->line(__('Thank you for using our application!'));
+        $this->authorize('view', $link);
+
+        $this->editingLink = $link;
+        $this->editForm->setBioLink($link);
     }
 }
 ```
 
-Next, I needed to remind customers with expired subscriptions that their subscription has ended and that their galleries will soon be deleted, as stated in our terms of service. I created a configuration to set the number of grace period days for expired subscriptions and another to specify when to send the reminder after expiration. I believe sending the reminder one day after expiration is the best timing to prompt the customer that their galleries will be deleted if the subscription is not renewed. I retrieve all teams and check if the subscription is marked as canceled and if it ended one day ago, allowing me to send a subscription expired warning notification. I didn't need to implement any logic to mark subscriptions as canceled because Laravel Cashier listens to Stripe webhooks, specifically for the subscription canceled webhook. This is quite convenient.
-
 ```php
-class SubscriptionsCleanupCommand extends Command
+// app/Livewire/Forms/BioLinkForm.php
+
+class BioLinkForm extends Form
 {
     // ...
 
-    public function handle()
+    public ?BioLink $bioLink = null;
+
+    public function setBioLink(BioLink $bioLink)
     {
-        $this->notifyExpiringSoon();
-        $this->notifyExpired();
+        $this->bioLink = $bioLink;
 
-        return 0;
-    }
-
-    private function notifyExpired()
-    {
-        $expiredWarningDays = config('picstome.subscription_expired_warning_days', 1);
-        $gracePeriodDays = config('picstome.subscription_grace_period_days', 7);
-        $daysLeft = $gracePeriodDays - $expiredWarningDays;
-        $targetDate = now()->subDays($expiredWarningDays);
-
-        Team::has('subscriptions')->cursor()->each(function ($team) use ($targetDate, $daysLeft) {
-            $subscription = $team->subscription();
-
-            if ($subscription &&
-                $subscription->stripe_status === 'canceled' &&
-                $subscription->ends_at &&
-                $subscription->ends_at->isSameDay($targetDate)) {
-                $team->owner->notify(new SubscriptionExpiredWarning($daysLeft));
-            }
-        });
+        $this->title = $bioLink->title;
+        $this->url = $bioLink->url;
     }
 }
 ```
 
-Similar to the subscription expiring soon notification, the subscription expired warning notification informs the customer that their subscription has expired and that their data will be deleted in X days if not renewed, with a link to renew the subscription.
+Now I needed another action to actually save the new link data. First, use a policy to authorize the action, and use the bio link form to update the data, reset the form, and reset the currently editing link property.
 
 ```php
-// app/Notifications/SubscriptionExpiredWarning.php
+// resources/views/pages/bio-links.blade.php
 
-class SubscriptionExpiredWarning extends Notification
+new class extends Component
 {
     // ...
 
-    public function __construct(
-        public int $daysLeft
-    ) {}
-
-    public function toMail($notifiable)
+    public function updateLink(BioLink $link)
     {
-        return (new MailMessage)
-                    ->line(__('Your subscription has expired.'))
-                    ->action(__('Renew Subscription'), route('billing-portal'))
-                    ->line(__('Your data will be deleted in :days days if not renewed.', ['days' => $this->daysLeft]));
+        $this->authorize('update', $link);
+        $this->editForm->update();
+        $this->editForm->resetForm();
+        $this->editingLink = null;
     }
 }
 ```
 
-Finally, if a customer's subscription expired seven days ago, I proceed to delete their galleries. As before, I retrieve all subscriptions and check if the subscription is marked as canceled and if the grace period days have passed. If so, I delete each gallery along with all its photos. Behind the scenes, the `deletePhotos` method dispatches a job to delete the photo in our storage service (MEGA), leveraging Laravel's queue system to defer the photo deletion load to a Laravel job.
-
 ```php
-class SubscriptionsCleanupCommand extends Command
+// app/Livewire/Forms/BioLinkForm.php
+
+class BioLinkForm extends Form
 {
     // ...
 
-    public function handle()
+    public ?BioLink $bioLink = null;
+
+    public function update()
     {
-        $this->notifyExpiringSoon();
-        $this->notifyExpired();
-        $this->deleteExpiredData();
+        $this->validate();
 
-        return 0;
-    }
-
-    private function deleteExpiredData()
-    {
-        $gracePeriodDays = config('picstome.subscription_grace_period_days', 7);
-
-        Team::has('subscriptions')->cursor()->each(function ($team) use ($gracePeriodDays) {
-            $subscription = $team->subscription();
-
-            if ($subscription &&
-                $subscription->stripe_status === 'canceled' &&
-                $subscription->ends_at &&
-                $subscription->ends_at->lt(now()->subDays($gracePeriodDays))) {
-                $team->galleries->each(function ($gallery) {
-                    $gallery->deletePhotos()->delete();
-                });
-            }
-        });
+        return $this->bioLink->update([
+            'title' => $this->title,
+            'url' => $this->url,
+        ]);
     }
 }
 ```
 
-I probably should have deferred the implementation of this data expiration until we have actual customers in Picstome. However, it was an interesting problem to solve in anticipation of subscription cancellations, making it configurable and easy to adjust in the future. Hopefully, we will soon acquire our first customers and maintain a long-term relationship with them, eliminating the need for this subscription cleanup.
+I also needed an action so the user can cancel the link edit if they prefer.
+
+```php
+// resources/views/pages/bio-links.blade.php
+
+new class extends Component
+{
+    // ...
+
+    public function cancelEdit(BioLink $link)
+    {
+        $this->editForm->resetForm();
+        $this->editingLink = null;
+    }
+}
+```
+
+And lastly, be able to delete links.
+
+```php
+// resources/views/pages/bio-links.blade.php
+
+new class extends Component
+{
+    // ...
+
+    public function deleteLink(BioLink $link)
+    {
+        $this->authorize('delete', $link);
+        $link->delete();
+    }
+}
+```
+
+Another thing I wanted to implement is letting the users reorder the links. After a bit of research, I came across an Alpine Sort plugin that would let users reorder the links, and to make it work, I need another Livewire action to change the link order by receiving the link and the new order from the Sort plugin.
+
+```php
+// resources/views/pages/bio-links.blade.php
+
+new class extends Component
+{
+    // ...
+
+    public function reorderLink(BioLink $link, int $newOrder)
+    {
+        $this->authorize('update', $link);
+        $link->reorder($newOrder);
+    }
+}
+```
+
+I encapsulated the link reordering logic in a method in the Bio Link model. I'm pretty proud of this refactor, actually.
+
+```php
+// app/Models/BioLink.php
+class BioLink extends Model
+{
+    // ...
+
+    public function reorder(int $newOrder): void
+    {
+        $currentOrder = $this->order;
+
+        if ($newOrder > $currentOrder) {
+            $this->team->bioLinks()
+                ->where('order', '>', $currentOrder)
+                ->where('order', '<=', $newOrder)
+                ->decrement('order');
+        } elseif ($newOrder < $currentOrder) {
+            $this->team->bioLinks()
+                ->where('order', '>=', $newOrder)
+                ->where('order', '<', $currentOrder)
+                ->increment('order');
+        }
+
+        $this->update(['order' => $newOrder]);
+    }
+}
+```
+
+It took me some iterations to finally get to this point, but it was really worth it. The backend implementation looks clear and easy to maintain. Feel free to fully check out the pull request.
+
+Next steps are to improve the UX of link management on mobile devices, since it uses tables that imply horizontal scrolling. Also, add more functionality to the public profile by adding, in addition to the bio link, social links and a bio description.
