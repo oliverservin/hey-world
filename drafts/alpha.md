@@ -209,7 +209,7 @@ new class extends Component
 }
 ```
 
-I encapsulated the link reordering logic in a method in the Bio Link model. I'm pretty proud of this refactor, actually.
+I encapsulated the link reordering logic in a method in the Bio Link model. I'm pretty proud of this refactor, actually. Check the new order; if it's bigger than the current one, decrement the order of all sibling links between the current order and the new order. Do the opposite when the new order is lower than the current one.
 
 ```php
 // app/Models/BioLink.php
