@@ -1,8 +1,8 @@
-Now that Picstome offers handles for public profiles for photographers, the next best use case for this handle is to show bio links so that photographers can showcase their social profiles in one single place, just like an alternative to linktr.ee.
+Now that Picstome offers handles for public profiles for photographers, the next best use case for these handles is to display bio links. This feature allows photographers to showcase their social profiles in one place, serving as an alternative to linktr.ee.
 
-Customers should be able to create bio links, and we would show them in their Picstome public profile. It seems like a simple feature, but the implementation had a few challenges.
+Customers should be able to create bio links, which we will display on their Picstome public profile. Although it seems like a simple feature, the implementation had a couple of challenges.
 
-The first thing was to create a new Bio Link model with its corresponding migrations. I basically only needed two fields, a title and a URL, but I also needed a column to store the team ID to make the relationship with the customer's personal team and an order column for sorting links.
+The first step was to create a new Bio Link model along with the necessary migrations. I needed two fields: a title and a URL. Additionally, I required a column to store the team ID to establish a relationship with the customer's personal team, as well as an order column for sorting links.
 
 ```php
 // database/migrations/2025_09_04_002242_create_bio_links_table.php
@@ -23,9 +23,9 @@ return new class extends Migration
 };
 ```
 
-The next step was to create a Laravel folio page so customers can manage their bio links, create, update, and delete them.
+The next step was to create a Laravel folio page, enabling customers to manage their bio links by creating, updating, and deleting them.
 
-To add a new link, I used an add link action to simply store the add form and then reset the form fields. It uses a Livewire Form so that I can reuse this form logic for when editing bio links.
+To add a new link, I implemented an add link action to store the form data and then reset the form fields. This uses a Livewire Form, allowing me to reuse the form logic for editing bio links.
 
 ```php
 // resources/views/pages/bio-links.blade.php
@@ -42,7 +42,7 @@ new class extends Component
 }
 ```
 
-The Form BioLinkForm doesn't exist yet, so I created it and added the title and URL field properties, the validation rules for the fields, the store method that validates the data, and lastly creates the bio link for the current user's team. Also, a helper to reset the form properties.
+The BioLinkForm class didn't exist yet, so I created it and added properties for the title and URL fields, along with validation rules. The store method validates the data and creates the bio link for the current user's team. I also included a helper to reset the form properties.
 
 ```php
 class BioLinkForm extends Form
@@ -76,7 +76,7 @@ class BioLinkForm extends Form
 }
 ```
 
-For editing links, I'm thinking of using an inline edit, so that when the user clicks the edit link button, it shows the edit link fields inline instead of opening a new page. To support this, I need an edit link action in the Livewire component to first verify the user can edit the selected link with a bio link policy, assign the editing link that the user is actually editing, and populate the edit form with the selected link.
+For editing links, I plan to use inline editing. When the user clicks the edit link button, the edit fields will appear inline instead of opening a new page. To support this, I need an edit link action in the Livewire component to verify that the user can edit the selected link using a bio link policy. This action will assign the link being edited and populate the edit form with the selected link.
 
 ```php
 // resources/views/pages/bio-links.blade.php
@@ -118,7 +118,7 @@ class BioLinkForm extends Form
 }
 ```
 
-Now I needed another action to actually save the new link data. First, use a policy to authorize the action, and use the bio link form to update the data, reset the form, and reset the currently editing link property.
+Next, I needed another action to save the new link data. This involves authorizing the action with a policy and using the bio link form to update the data, reset the form, and clear the currently editing link property.
 
 ```php
 // resources/views/pages/bio-links.blade.php
@@ -158,7 +158,7 @@ class BioLinkForm extends Form
 }
 ```
 
-I also needed an action so the user can cancel the link edit if they prefer.
+I also needed an action to allow the user to cancel the link edit if they choose.
 
 ```php
 // resources/views/pages/bio-links.blade.php
@@ -175,7 +175,7 @@ new class extends Component
 }
 ```
 
-And lastly, be able to delete links.
+Finally, I implemented the ability to delete links.
 
 ```php
 // resources/views/pages/bio-links.blade.php
@@ -192,7 +192,7 @@ new class extends Component
 }
 ```
 
-Another thing I wanted to implement is letting the users reorder the links. After a bit of research, I came across an Alpine Sort plugin that would let users reorder the links, and to make it work, I need another Livewire action to change the link order by receiving the link and the new order from the Sort plugin.
+I also wanted to allow users to reorder the links. After some research, I found an Alpine Sort plugin that would enable this feature. To make it work, I need another Livewire action to change the link order by receiving the link and the new order from the Sort plugin.
 
 ```php
 // resources/views/pages/bio-links.blade.php
@@ -209,7 +209,7 @@ new class extends Component
 }
 ```
 
-I encapsulated the link reordering logic in a method in the Bio Link model. I'm pretty proud of this refactor, actually. Check the new order; if it's bigger than the current one, decrement the order of all sibling links between the current order and the new order. Do the opposite when the new order is lower than the current one.
+I encapsulated the link reordering logic within a method in the Bio Link model. I'm quite proud of this refactor. The method checks the new order; if it's greater than the current one, it decrements the order of all sibling links between the current and new orders. Conversely, if the new order is lower, it increments the order of the relevant links.
 
 ```php
 // app/Models/BioLink.php
@@ -238,6 +238,6 @@ class BioLink extends Model
 }
 ```
 
-It took me some iterations to finally get to this point, but it was really worth it. The backend implementation looks clear and easy to maintain. Feel free to fully check out the pull request.
+It took several iterations to reach this point, but it was worth the effort. The backend implementation is now clear and easy to maintain. Feel free to review the [pull request](https://github.com/picstome/picstome/pull/111).
 
-Next steps are to improve the UX of link management on mobile devices, since it uses tables that imply horizontal scrolling. Also, add more functionality to the public profile by adding, in addition to the bio link, social links and a bio description.
+The next steps involve improving the user experience for link management on mobile devices, as the current layout uses tables that require horizontal scrolling. Additionally, I plan to enhance the public profile by adding social links and a bio description alongside the bio links.
